@@ -21,7 +21,7 @@ const BackButton: React.FC = () => {
 
   return (
     <StyledButton onClick={() => navigate(-1)}>
-      <StyledLogo src={back} />
+      <StyledLogo src={back} alt="Go back" />
       <Typography
         component="span"
         label="Go back"
