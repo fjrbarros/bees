@@ -1,24 +1,25 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import { validateUserName } from '../../utils';
+import { renderUi } from '../../utils';
 import Home from './Home';
 
 describe('<Home />', () => {
   it('should render message full name', () => {
-    const { getByText } = render(<Home />);
+    const { getByText } = renderUi(<Home />);
     expect(
       getByText(/please, enter your full name below/i),
     ).toBeInTheDocument();
   });
 
   it('should render message only alphabetical', () => {
-    const { getByText } = render(<Home />);
+    const { getByText } = renderUi(<Home />);
     expect(
       getByText(/only alphabetical characters are accepted/i),
     ).toBeInTheDocument();
   });
 
   it('should render input user name', () => {
-    const { getByRole } = render(<Home />);
+    const { getByRole } = renderUi(<Home />);
     const input = getByRole('textbox') as HTMLInputElement;
 
     expect(input).toBeInTheDocument();
@@ -29,14 +30,14 @@ describe('<Home />', () => {
   });
 
   it('should render checkbox', () => {
-    const { getByRole } = render(<Home />);
+    const { getByRole } = renderUi(<Home />);
     expect(
       getByRole('checkbox', { name: /are you older than 18 years old\?/i }),
     ).toBeInTheDocument();
   });
 
   it('should render button', () => {
-    const { getByRole } = render(<Home />);
+    const { getByRole } = renderUi(<Home />);
 
     const button = getByRole('button', { name: /enter/i });
     const checkbox = getByRole('checkbox', {
@@ -53,12 +54,12 @@ describe('<Home />', () => {
   });
 
   it('should render logo', () => {
-    const { getByRole } = render(<Home />);
+    const { getByRole } = renderUi(<Home />);
     expect(getByRole('img', { name: /logo/i })).toBeInTheDocument();
   });
 
   it('should not error on submit form', () => {
-    const { getByRole } = render(<Home />);
+    const { getByRole } = renderUi(<Home />);
 
     const button = getByRole('button', { name: /enter/i });
     const checkbox = getByRole('checkbox', {
@@ -78,7 +79,7 @@ describe('<Home />', () => {
   });
 
   it('should error on submit form', () => {
-    const { getByRole } = render(<Home />);
+    const { getByRole } = renderUi(<Home />);
 
     const button = getByRole('button', { name: /enter/i });
     const checkbox = getByRole('checkbox', {
