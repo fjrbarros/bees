@@ -1,9 +1,11 @@
 import { render } from '@testing-library/react';
-import Button from './Button';
+import EnterButton from './EnterButton';
 
-describe('<Button />', () => {
+describe('<EnterButton />', () => {
   it('shound render/unrender button', () => {
-    const { getByRole, unmount } = render(<Button>Button test</Button>);
+    const { getByRole, unmount } = render(
+      <EnterButton>Button test</EnterButton>,
+    );
     const button = getByRole('button', { name: /button test/i });
 
     expect(button).toBeInTheDocument();

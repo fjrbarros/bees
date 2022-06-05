@@ -16,8 +16,8 @@ interface Props {
   disabled?: boolean;
 }
 
-const Button: React.FC<Props> = ({ children, disabled }) => {
+const EnterButton: React.FC<Props> = ({ children, disabled }) => {
   return <StyledButton disabled={disabled}>{children}</StyledButton>;
 };
 
-export default Button;
+export default EnterButton;
