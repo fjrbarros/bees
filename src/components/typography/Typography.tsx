@@ -16,7 +16,7 @@ const StyledTypography = styled('p').attrs<TypographyProps>(
     color: ${props => props.theme?.colors?.[color]};
     margin: ${props => props.margin || 0};
     font-size: ${props => props.fontSize || '14px'};
-    text-align: ${props => props.textAlign || 'center'};
+    text-align: ${props => props.textAlign || 'initial'};
   `}
 `;
 

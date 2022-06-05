@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
-  margin-bottom: 16px;
+interface IContainer {
+  margin?: string;
+}
+
+const Container = styled('div')<IContainer>`
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin: ${props => props.margin || 0};
 `;
 
 const StyledTextField = styled.input`
@@ -26,6 +30,7 @@ interface Props {
   placeholder?: string;
   value?: string;
   error?: string;
+  margin?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -34,9 +39,10 @@ const TextField: React.FC<Props> = ({
   value,
   error,
   onChange,
+  margin,
 }) => {
   return (
-    <Container>
+    <Container margin={margin}>
       <StyledTextField
         placeholder={placeholder}
         value={value}

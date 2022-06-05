@@ -11,8 +11,8 @@ import { validateUserName } from '../../utils';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUserName } from '../../store/user';
-import styled from 'styled-components';
 import { AppDispatch } from '../../store';
+import styled from 'styled-components';
 
 const ContainerButton = styled.div`
   display: flex;
@@ -46,12 +46,12 @@ const Home: React.FC = () => {
     <Container>
       <Form onSubmit={handleSubmit}>
         <Typography
-          margin="0px 0px 14px"
+          margin="0px 0px 16px"
           fontSize="14px"
           label="Please, enter your full name below"
         />
         <Typography
-          margin="0px 0px 14px"
+          margin="0px 0px 16px"
           fontSize="14px"
           label="Only alphabetical characters are accepted"
         />
@@ -60,11 +60,13 @@ const Home: React.FC = () => {
           error={error}
           value={userName}
           onChange={handleChangeName}
+          margin="0 0 16px"
         />
         <CheckBox
           checked={checked}
           onChange={handleChangeCheck}
           label="Are you older than 18 years old?"
+          margin="0 0 22px"
         />
         <ContainerButton>
           <EnterButton disabled={!checked}>Enter</EnterButton>

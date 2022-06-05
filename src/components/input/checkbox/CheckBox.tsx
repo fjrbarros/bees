@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 import Typography from '../../typography/Typography';
 
-const StyledLabel = styled.label`
+interface IStyledLabel {
+  margin?: string;
+}
+
+const StyledLabel = styled('label')<IStyledLabel>`
   display: grid;
   grid-template-columns: 1em auto;
   gap: 0.5em;
   align-items: center;
-  margin-bottom: 21px;
+  margin: ${props => props.margin || 0};
 `;
 
 const StyledCheckBox = styled.input`
@@ -48,12 +52,13 @@ const StyledCheckBox = styled.input`
 interface Props {
   label?: string;
   checked?: boolean;
+  margin?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const CheckBox: React.FC<Props> = ({ label, checked, onChange }) => {
+const CheckBox: React.FC<Props> = ({ label, checked, margin, onChange }) => {
   return (
-    <StyledLabel>
+    <StyledLabel margin={margin}>
       <StyledCheckBox type="checkbox" checked={checked} onChange={onChange} />
       <Typography component="p" fontSize="14px" label={label} />
     </StyledLabel>
