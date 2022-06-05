@@ -73,9 +73,11 @@
       "!src/**/*.d.ts",
       "!src/index.tsx",
       "!<rootDir>/node_modules/",
+      "!<rootDir>/src/routes/*",
       "!<rootDir>/src/components/index.ts",
       "!<rootDir>/src/pages/index.ts",
-      "!<rootDir>/src/styles/globalStyles.ts",
+      "!<rootDir>/src/styles/*",
+      "!<rootDir>/src/store/*",
       "!<rootDir>/src/index.tsx",
       "!<rootDir>/src/App.tsx"
     ],
@@ -88,7 +90,8 @@
       }
     },
     "transform": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/fileTransformer.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/fileTransformer.js",
+      "\\.js$": "<rootDir>/node_modules/babel-jest"
     }
   }
 }
