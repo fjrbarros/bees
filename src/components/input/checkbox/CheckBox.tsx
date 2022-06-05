@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Typography from '../../typography/Typography';
 
 const StyledLabel = styled.label`
   display: grid;
@@ -44,11 +45,6 @@ const StyledCheckBox = styled.input`
   }
 `;
 
-const Typograph = styled.p`
-  font-size: 14px;
-  line-height: 150%;
-`;
-
 interface Props {
   label?: string;
   checked?: boolean;
@@ -59,7 +55,7 @@ const CheckBox: React.FC<Props> = ({ label, checked, onChange }) => {
   return (
     <StyledLabel>
       <StyledCheckBox type="checkbox" checked={checked} onChange={onChange} />
-      <Typograph>{label}</Typograph>
+      <Typography component="p" fontSize="14px" label={label} />
     </StyledLabel>
   );
 };
