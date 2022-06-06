@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { BackButton } from '../';
-import { Typography } from '../';
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
@@ -10,10 +9,19 @@ const StyledHeader = styled.header`
   background-color: #f2ec54;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  @media (max-width: 600px) {
+    height: 50px;
+  }
 `;
 
-const Flex = styled.div`
-  flex: 1;
+const UserName = styled.p`
+  font-size: 30px;
+  @media (max-width: 625px) {
+    font-size: 22px;
+  }
 `;
 
 const Header: React.FC = () => {
@@ -21,18 +29,8 @@ const Header: React.FC = () => {
 
   return (
     <StyledHeader>
-      <Flex>
-        <BackButton />
-      </Flex>
-      <Flex></Flex>
-      <Flex>
-        <Typography
-          component="p"
-          fontSize="30px"
-          textAlign="end"
-          label={name}
-        />
-      </Flex>
+      <BackButton />
+      <UserName>{name}</UserName>
     </StyledHeader>
   );
 };
