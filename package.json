@@ -77,7 +77,7 @@
       "!<rootDir>/src/components/index.ts",
       "!<rootDir>/src/pages/index.ts",
       "!<rootDir>/src/styles/*",
-      "!<rootDir>/src/store/*",
+      "!<rootDir>/src/store/index.ts",
       "!<rootDir>/src/index.tsx",
       "!<rootDir>/src/App.tsx"
     ],
