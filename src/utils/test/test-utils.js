@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import userReducer from '../../store/user';
 import { BrowserRouter } from 'react-router-dom';
+import Theme from '../../styles/Theme';
 
 function renderUi(
   ui,
@@ -15,7 +16,9 @@ function renderUi(
   function Wrapper({ children }) {
     return (
       <Provider store={store}>
-        <BrowserRouter>{children}</BrowserRouter>
+        <Theme>
+          <BrowserRouter>{children}</BrowserRouter>
+        </Theme>
       </Provider>
     );
   }
