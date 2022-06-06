@@ -5,6 +5,10 @@ const StyledLogo = styled.img`
   position: absolute;
   bottom: 15px;
   left: 29px;
+  @media (max-width: 800px) {
+    width: 150px;
+    height: 150px;
+  }
   @media (max-width: 600px) {
     width: 100px;
     height: 100px;
