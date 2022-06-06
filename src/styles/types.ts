@@ -10,9 +10,9 @@ export type TypographyComponent =
   | 'h5'
   | 'h6';
 
-export type TypographyMargin = string | number;
-export type TypographyFontSize = string | number;
-export type TypographyTextAlign = string;
+export type TypographyMargin = string | undefined;
+export type TypographyFontSize = string | undefined;
+export type TypographyTextAlign = string | undefined;
 
 export type TypographyProps = {
   component?: TypographyComponent;
