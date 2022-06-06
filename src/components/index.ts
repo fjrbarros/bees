@@ -5,3 +5,4 @@ export { default as TextField } from './input/textfield/TextField';
 export { default as Typography } from './typography/Typography';
 export { default as Form } from './form/Form';
 export { default as Header } from './header/Header';
+export { default as PageWrapper } from './pagewrapper/PageWrapper';
