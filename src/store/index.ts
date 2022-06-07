@@ -1,12 +1,12 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import user from './user';
-import brewerie from './brewerie';
+import brewery from './brewery';
 
 export const store = configureStore({
   reducer: {
     user,
-    brewerie,
+    brewery,
   },
 });
 
