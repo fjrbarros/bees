@@ -23,6 +23,7 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const [checked, setChecked] = useState<boolean>(false);
+  const [submited, setSubmited] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>('');
   const [error, setError] = useState<string>('');
 
@@ -32,13 +33,21 @@ const Home: React.FC = () => {
 
   const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(event.target.value);
+    const error = validateUserName(userName);
+    if (submited) {
+      setError(error);
+    }
   };
 
   const handleSubmit = () => {
+    setSubmited(true);
     const error = validateUserName(userName);
-    setError(error);
-    if (error) return;
+    if (error) {
+      setError(error);
+      return;
+    }
     dispatch(addUserName(userName));
+    localStorage.setItem('userName', userName);
     navigate('/dashboard');
   };
 
@@ -69,7 +78,7 @@ const Home: React.FC = () => {
           margin="0 0 22px"
         />
         <ContainerButton>
-          <EnterButton disabled={!checked}>Enter</EnterButton>
+          <EnterButton disabled={!checked || !!error}>Enter</EnterButton>
         </ContainerButton>
       </Form>
       <Logo />

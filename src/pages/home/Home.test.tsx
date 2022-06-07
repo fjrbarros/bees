@@ -1,4 +1,4 @@
-import { fireEvent } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import { validateUserName } from '../../utils';
 import { renderUi } from '../../utils';
 import Home from './Home';
@@ -78,7 +78,7 @@ describe('<Home />', () => {
     expect(error).toBe('');
   });
 
-  it('should error on submit form', () => {
+  it('should error on submit form', async () => {
     const { getByRole } = renderUi(<Home />);
 
     const button = getByRole('button', { name: /enter/i });
@@ -93,8 +93,13 @@ describe('<Home />', () => {
     expect(button).not.toBeDisabled();
 
     fireEvent.submit(button);
-    const error = validateUserName(userName);
 
-    expect(error).toBe('Full name is required');
+    expect(screen.getByText(/full name is required/i)).toBeInTheDocument();
+
+    fireEvent.change(input, { target: { value: 'user123' } });
+
+    expect(
+      await screen.findByText(/only alphabetical characters are accepted/i),
+    ).toBeInTheDocument();
   });
 });
