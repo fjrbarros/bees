@@ -1,4 +1,4 @@
-import { renderUi } from '../../utils';
+import { renderUi, screen, fireEvent } from '../../utils';
 import Header from './Header';
 
 describe('<Header />', () => {
@@ -25,5 +25,17 @@ describe('<Header />', () => {
     });
 
     expect(getByText(/user name/i)).toBeInTheDocument();
+  });
+
+  it('should execute onChangeSearch', () => {
+    const spy = jest.fn();
+
+    renderUi(<Header onChangeSearch={spy} />);
+
+    const input = screen.getByRole('textbox');
+
+    fireEvent.change(input, { target: { value: 'test' } });
+
+    expect(spy).toBeCalled();
   });
 });
