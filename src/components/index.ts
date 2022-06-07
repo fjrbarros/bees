@@ -1,5 +1,6 @@
 export { default as EnterButton } from './button/enterButton/EnterButton';
 export { default as BackButton } from './button/backButton/BackButton';
+export { default as IconButton } from './button/iconButton/IconButton';
 export { default as CheckBox } from './input/checkbox/CheckBox';
 export { default as TextField } from './input/textfield/TextField';
 export { default as Typography } from './typography/Typography';
