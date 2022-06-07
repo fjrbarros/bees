@@ -10,16 +10,22 @@ const CardWrapper = styled.div`
 
 interface Props {
   brewery: IBrewery;
+  toHighLight?: string;
 }
 
-const Card: React.FC<Props> = ({ brewery }) => {
+const Card: React.FC<Props> = ({ brewery, toHighLight }) => {
   return (
     <CardWrapper>
-      <CardHeader name={brewery.name} cardId={brewery.id} />
+      <CardHeader
+        name={brewery.name}
+        cardId={brewery.id}
+        toHighLight={toHighLight}
+      />
       <CardBody
         city={brewery.city}
         state={brewery.state}
         country={brewery.country}
+        toHighLight={toHighLight}
       />
       <CardTags tags={brewery.tags} cardId={brewery.id} />
     </CardWrapper>

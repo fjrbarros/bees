@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import remove from '../../../../../../assets/image/remove.svg';
 import { IconButton } from '../../../../../../components';
+import HighLight from '../../../../../../components/highLight/HighLight';
 import { AppDispatch } from '../../../../../../store';
 import { removeCard } from '../../../../../../store/brewery';
 
@@ -21,9 +22,10 @@ const Icon = styled.img`
 interface Props {
   name: string;
   cardId?: string;
+  toHighLight?: string;
 }
 
-const CardHeader: React.FC<Props> = ({ name, cardId }) => {
+const CardHeader: React.FC<Props> = ({ name, cardId, toHighLight }) => {
   const dispatch: AppDispatch = useDispatch();
 
   const handleRemoveCard = () => {
@@ -32,7 +34,7 @@ const CardHeader: React.FC<Props> = ({ name, cardId }) => {
 
   return (
     <CardHeaderStyled>
-      <span>{name}</span>
+      <HighLight toHighLight={toHighLight}>{name}</HighLight>
       <IconButton onClick={handleRemoveCard}>
         <Icon src={remove} alt="remove card" />
       </IconButton>
