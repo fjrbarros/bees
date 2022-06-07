@@ -4,12 +4,12 @@ import { PageWrapper, Loading } from '../../components';
 import { Grid, NoData, Card } from './components';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
-import { fetchBreweries } from '../../api/brewerie';
+import { fetchBreweries } from '../../api/brewery';
 
 const Dashboard: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
   const { loading, error, data } = useSelector(
-    (data: RootState) => data.brewerie,
+    (data: RootState) => data.brewery,
   );
 
   useEffect(() => {
