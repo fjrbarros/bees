@@ -11,12 +11,13 @@ const Main = styled.main`
 
 interface Props {
   children?: React.ReactNode;
+  onChangeSearch?: (value: string) => void;
 }
 
-const PageWrapper: React.FC<Props> = ({ children }) => {
+const PageWrapper: React.FC<Props> = ({ children, onChangeSearch }) => {
   return (
     <>
-      <Header />
+      <Header onChangeSearch={onChangeSearch} />
       <Main>{children}</Main>
     </>
   );
