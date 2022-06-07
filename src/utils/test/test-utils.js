@@ -1,15 +1,17 @@
 import { render as rtlRender } from '@testing-library/react';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import userReducer from '../../store/user';
+import user from '../../store/user';
+import brewery from '../../store/brewery';
 import { BrowserRouter } from 'react-router-dom';
 import Theme from '../../styles/Theme';
+import { ToastContainer } from 'react-toastify';
 
 function renderUi(
   ui,
   {
     preloadedState,
-    store = configureStore({ reducer: { user: userReducer }, preloadedState }),
+    store = configureStore({ reducer: { user, brewery }, preloadedState }),
     ...renderOptions
   } = {},
 ) {
@@ -19,6 +21,7 @@ function renderUi(
         <Theme>
           <BrowserRouter>{children}</BrowserRouter>
         </Theme>
+        <ToastContainer />
       </Provider>
     );
   }
