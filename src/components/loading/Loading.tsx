@@ -121,7 +121,7 @@ const Container = styled.div`
 
 const Loading: React.FC = () => {
   return (
-    <Container>
+    <Container data-testid="loading">
       <Roller>
         <div></div>
         <div></div>
