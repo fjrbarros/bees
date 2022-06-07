@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IBrewery } from '../../store/brewerie/types';
+import { IBrewery } from '../../store/brewery/types';
 import axios from 'axios';
 
 export const fetchBreweries = createAsyncThunk<
