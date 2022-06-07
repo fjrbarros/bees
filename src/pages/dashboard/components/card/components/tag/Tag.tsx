@@ -56,6 +56,7 @@ const Tag: React.FC<Props> = ({ tag, cardId }) => {
   };
 
   const handleSubmit = () => {
+    if (!value) return;
     dispatch(addTagCard({ cardId, value }));
     setValue('');
     setShowForm(false);
