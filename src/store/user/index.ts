@@ -1,10 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { IUser } from './types';
 
-interface User {
-  name: string;
-}
-
-const initialState: User = {
+const initialState: IUser = {
   name: '',
 };
 

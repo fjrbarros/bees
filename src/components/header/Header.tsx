@@ -12,6 +12,7 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   position: sticky;
   top: 0;
+  z-index: 9999;
   @media (max-width: 600px) {
     height: 50px;
   }
